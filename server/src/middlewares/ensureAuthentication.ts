@@ -3,6 +3,8 @@ import { verify } from 'jsonwebtoken'
 
 import authConfig from '../config/auth'
 
+import AppError from '../errors/AppError'
+
 interface TokenPayLoad {
   iat: number
   exp: number
@@ -17,7 +19,7 @@ export default function ensureAuthentication(
   const authorization = request.headers.authorization
 
   if(!authorization) {
-    throw new Error('Token is missing!')
+    throw new AppError('Token is missing!', 401)
   }
 
   const [, token] = authorization.split(' ')
@@ -35,6 +37,6 @@ export default function ensureAuthentication(
     return next()
 
   } catch {
-    throw new Error('Invalid token')
+    throw new AppError('Invalid token', 401)
   }
 }

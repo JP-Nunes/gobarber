@@ -1,6 +1,9 @@
-import User from '../models/User'
 import { getRepository } from 'typeorm'
 import { hash } from 'bcryptjs'
+
+import AppError from '../errors/AppError'
+
+import User from '../models/User'
 
 interface RequestDTO {
   name: string
@@ -17,7 +20,7 @@ class CreateUserService {
     })
 
     if(repeatedEmail) {
-      throw new Error('Email já em uso')
+      throw new AppError('Email já em uso')
     }
 
     const hashedPassword = await hash(password, 8)

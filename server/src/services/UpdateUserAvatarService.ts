@@ -2,6 +2,8 @@ import { getRepository } from 'typeorm'
 import path from 'path'
 import fs from 'fs'
 
+import AppError from '../errors/AppError'
+
 import uploadConfig from '../config/upload'
 import User from '../models/User'
 
@@ -17,7 +19,7 @@ class UpdateUserService {
     const user = await usersRepository.findOne(userId)
 
     if(!user) {
-      throw new Error('Não é possível mudar o avatar de um usuário não autenticado')
+      throw new AppError('Não é possível mudar o avatar de um usuário não autenticado', 401)
     }
 
     if(user.avatar) {
