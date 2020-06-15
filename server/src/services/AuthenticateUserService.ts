@@ -23,13 +23,13 @@ class AuthenticateUserService {
 
     const user = await usersRepository.findOne({ where: { email } })
 
-    if(!user) {
+    if (!user) {
       throw new AppError('Email ou senha incorretos.', 401)
     }
 
     const passwordMatched = await compare(password, user.password)
 
-    if(!passwordMatched) {
+    if (!passwordMatched) {
       throw new AppError('Email ou senha incorretos.', 401)
     }
 

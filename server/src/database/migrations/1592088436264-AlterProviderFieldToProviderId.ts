@@ -1,7 +1,12 @@
-import {MigrationInterface, QueryRunner, TableColumn, TableForeignKey} from "typeorm";
+import {
+  MigrationInterface,
+  QueryRunner,
+  TableColumn,
+  TableForeignKey
+} from 'typeorm'
 
-export default class AlterProviderFieldToProviderId1592088436264 implements MigrationInterface {
-
+export default class AlterProviderFieldToProviderId1592088436264
+  implements MigrationInterface {
   public async up(queryRunner: QueryRunner): Promise<void> {
     await queryRunner.dropColumn('appointments', 'provider')
 
@@ -35,9 +40,8 @@ export default class AlterProviderFieldToProviderId1592088436264 implements Migr
       'appointments',
       new TableColumn({
         name: 'provider',
-        type: 'varchar',
+        type: 'varchar'
       })
     )
   }
-
 }

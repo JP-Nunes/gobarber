@@ -1,4 +1,4 @@
-import { Request, Response, NextFunction} from 'express'
+import { Request, Response, NextFunction } from 'express'
 import { verify } from 'jsonwebtoken'
 
 import authConfig from '../config/auth'
@@ -18,14 +18,13 @@ export default function ensureAuthentication(
 ): void {
   const authorization = request.headers.authorization
 
-  if(!authorization) {
+  if (!authorization) {
     throw new AppError('Token is missing!', 401)
   }
 
   const [, token] = authorization.split(' ')
 
   try {
-
     const decoded = verify(token, authConfig.jwt.secret)
 
     const { sub } = decoded as TokenPayLoad
@@ -35,7 +34,6 @@ export default function ensureAuthentication(
     }
 
     return next()
-
   } catch {
     throw new AppError('Invalid token', 401)
   }

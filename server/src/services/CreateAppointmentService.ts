@@ -12,14 +12,19 @@ interface RequestDTO {
 }
 
 class CreateAppointmentService {
-  public async execute({ date, provider_id }: RequestDTO): Promise<Appointment> {
+  public async execute({
+    date,
+    provider_id
+  }: RequestDTO): Promise<Appointment> {
     const appointmentsRepository = getCustomRepository(AppointmentsRepository)
 
     const appointmentDate = startOfHour(date)
 
-    const findSameDateAppointments = await appointmentsRepository.findByDate(appointmentDate)
+    const findSameDateAppointments = await appointmentsRepository.findByDate(
+      appointmentDate
+    )
 
-    if(findSameDateAppointments) {
+    if (findSameDateAppointments) {
       throw new AppError('Horário indisponível')
     }
 

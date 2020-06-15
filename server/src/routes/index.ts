@@ -11,7 +11,7 @@ routes.use('/users', usersRouter)
 routes.use('/sessions', sessionsRouter)
 
 routes.get('/', (request, response) => {
-  return response.json({ message: "Hello moto" })
+  return response.json({ message: 'Hello moto' })
 })
 
 export default routes

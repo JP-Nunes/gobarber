@@ -19,7 +19,7 @@ class CreateUserService {
       where: { email }
     })
 
-    if(repeatedEmail) {
+    if (repeatedEmail) {
       throw new AppError('Email já em uso')
     }
 
