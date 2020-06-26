@@ -1,10 +1,11 @@
-import React, { useCallback, useRef, useContext } from 'react'
+import React, { useCallback, useRef } from 'react'
 import { FiLogIn, FiMail, FiLock } from 'react-icons/fi'
 import { Form } from '@unform/web'
 import { FormHandles } from '@unform/core'
 import * as Yup from 'yup'
 
-import { useAuth } from '../../hooks/AuthContext'
+import { useAuth } from '../../hooks/auth'
+import { useToast } from '../../hooks/toast'
 import getValidationErrors from '../../utils/getValidationErrors'
 
 import logoImg from '../../assets/logo.svg'
@@ -23,6 +24,7 @@ const SignIn: React.FC = () => {
   const formRef = useRef<FormHandles>(null)
 
   const { user, signIn } = useAuth()
+  const { addToast, removeToast } = useToast()
 
   console.log(user)
 
@@ -41,7 +43,7 @@ const SignIn: React.FC = () => {
           abortEarly: false,
         })
 
-        signIn({
+        await signIn({
           email: data.email,
           password: data.password,
         })
@@ -52,10 +54,14 @@ const SignIn: React.FC = () => {
           formRef.current?.setErrors(errors)
         }
 
-        // toast
+        addToast({
+          type: 'error',
+          title: 'erro ao logar',
+          description: 'Ocorreu um erro ao fazer login',
+        })
       }
     },
-    [signIn]
+    [signIn, addToast]
   )
 
   return (
