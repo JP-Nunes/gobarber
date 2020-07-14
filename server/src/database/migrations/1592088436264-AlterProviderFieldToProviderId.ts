@@ -32,7 +32,7 @@ export default class AlterProviderFieldToProviderId1592088436264
   }
 
   public async down(queryRunner: QueryRunner): Promise<void> {
-    await queryRunner.dropForeignKey('aapointments', 'AppointmentProvider')
+    await queryRunner.dropForeignKey('appointments', 'AppointmentProvider')
 
     await queryRunner.dropColumn('appointments', 'provider_id')
 
