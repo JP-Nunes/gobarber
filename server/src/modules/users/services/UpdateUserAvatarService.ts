@@ -1,22 +1,22 @@
-import { getRepository } from 'typeorm'
 import path from 'path'
 import fs from 'fs'
 import uploadConfig from '@config/upload'
 
 import AppError from '@shared/errors/AppError'
+import IUsersRepository from '../repositories/IUsersRepository'
 
 import User from '../infra/typeorm/entities/User'
 
-interface RequestDTO {
+interface IRequestDTO {
   userId: string
   avatarFilename: string
 }
 
 class UpdateUserService {
-  public async execute({ userId, avatarFilename }: RequestDTO): Promise<User> {
-    const usersRepository = getRepository(User)
+  constructor(private usersRepository: IUsersRepository) {}
 
-    const user = await usersRepository.findOne(userId)
+  public async execute({ userId, avatarFilename }: IRequestDTO): Promise<User> {
+    const user = await this.usersRepository.findById(userId)
 
     if (!user) {
       throw new AppError(
@@ -39,7 +39,7 @@ class UpdateUserService {
 
     user.avatar = avatarFilename
 
-    await usersRepository.save(user)
+    await this.usersRepository.save(user)
 
     return user
   }
