@@ -25,7 +25,7 @@ class UsersRepository implements IUsersRepository {
 
     Object.assign(user, { id: uuid() }, userData)
 
-    this.users.push()
+    this.users.push(user)
 
     return user
   }
