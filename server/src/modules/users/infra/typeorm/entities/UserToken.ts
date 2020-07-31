@@ -7,7 +7,7 @@ import {
   Generated
 } from 'typeorm'
 
-@Entity('userToken')
+@Entity('user_tokens')
 class UserToken {
   @PrimaryGeneratedColumn('uuid')
   id: string
