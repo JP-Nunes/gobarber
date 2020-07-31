@@ -8,6 +8,6 @@ const forgotPasswordsController = new ForgotPasswordsController()
 const resetPasswordsController = new ResetPasswordsController()
 
 passwordsRouter.post('/forgot', forgotPasswordsController.create)
-passwordsRouter.post('/', resetPasswordsController.create)
+passwordsRouter.post('/reset', resetPasswordsController.create)
 
 export default passwordsRouter
