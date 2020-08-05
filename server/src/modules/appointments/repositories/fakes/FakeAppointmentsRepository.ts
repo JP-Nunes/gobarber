@@ -20,11 +20,7 @@ class AppointmentsRepository implements IAppointmentsRepository {
 
     Object.assign(appointment, { id: uuid(), user_id, provider_id, date })
 
-    console.log(appointment)
-
     this.appointments.push(appointment)
-
-    console.log(`this.appointments = ${this.appointments}`)
 
     return appointment
   }
