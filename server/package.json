@@ -12,6 +12,7 @@
   },
   "dependencies": {
     "@types/cors": "^2.8.6",
+    "@types/mongodb": "^3.5.25",
     "@typescript-eslint/eslint-plugin": "^3.3.0",
     "@typescript-eslint/parser": "^3.3.0",
     "bcryptjs": "^2.4.3",
