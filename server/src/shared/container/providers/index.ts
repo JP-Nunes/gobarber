@@ -1,7 +1,7 @@
 import { container } from 'tsyringe'
 
-import IStorageProvider from './StorageContainer/models/IStorageProvider'
-import DiskStorageProvider from './StorageContainer/implementations/DiskStorageProvider'
+import IStorageProvider from './StorageProvider/models/IStorageProvider'
+import DiskStorageProvider from './StorageProvider/implementations/DiskStorageProvider'
 
 import './MailTemplateProvider'
 import './MailProvider'
