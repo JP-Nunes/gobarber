@@ -19,7 +19,7 @@ export const Container = styled.div<ContainerProps>`
   align-items: center;
 
   & + div {
-    margin-top: 16px;
+    margin-top: 12px;
   }
 
   ${(props) =>

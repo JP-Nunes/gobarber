@@ -5,7 +5,7 @@ import authConfig from '@config/auth'
 
 import AppError from '@shared/errors/AppError'
 
-interface TokenPayLoad {
+interface ITokenPayLoad {
   iat: number
   exp: number
   sub: string
@@ -27,7 +27,7 @@ export default function ensureAuthentication(
   try {
     const decoded = verify(token, authConfig.jwt.secret)
 
-    const { sub } = decoded as TokenPayLoad
+    const { sub } = decoded as ITokenPayLoad
 
     request.user = {
       id: sub

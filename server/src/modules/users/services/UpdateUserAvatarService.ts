@@ -22,7 +22,6 @@ class UpdateUserService {
   ) {}
 
   public async execute({ userId, avatarFilename }: IRequestDTO): Promise<User> {
-    console.log(userId)
     const user = await this.usersRepository.findById(userId)
 
     if (!user) {
