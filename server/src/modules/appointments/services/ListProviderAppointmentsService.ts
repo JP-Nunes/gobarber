@@ -32,7 +32,7 @@ class ListProviderAppointmentsService {
 
     let appointments = await this.cacheProvider.recover<Appointment[]>(cacheKey)
 
-    if (!appointments?.length) {
+    if (!appointments) {
       appointments = await this.appointmentsRepository.findAllFromProviderByDay(
         {
           provider_id,
@@ -45,6 +45,7 @@ class ListProviderAppointmentsService {
       await this.cacheProvider.save(cacheKey, classToClass(appointments))
     }
 
+    console.log(appointments)
     return appointments
   }
 }
