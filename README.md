@@ -7,12 +7,6 @@
 </p>
 <br>
 
-## React Web Front-end
-
-<p align="center">
-  <img width="850" height="450" src="/gobarber-web/public/gobarber-logon.png">
-</p>
-
 ## If you want to run it:
 * ## Server
   * ### Required technologies:
@@ -20,7 +14,8 @@
     * [Yarn](https://yarnpkg.com/getting-started/install)
     * [PostgreSQL](https://www.postgresql.org/)
     * [MongoDB](https://www.mongodb.com/)
-    * [Redis](https://redis.io/)
+    * [Redis - Linux and Mac](https://redis.io/) 
+    * [Redis - Windows](https://redis.io/)
   * ### Environment Variables:
     * At the "server" folder, you'll find a ".env.example" file, erase the ".example" part from the title and fill the missing informations on the body;
     * On "STORAGE_DRIVER=", write "disk" right in front of it (without space) if you want to storage user profile images on your hd. In case you want to use Amazon S3, write "s3", but you'll need a AWS account and a created bucket, wich you will need to inform at "server/src/config/upload", right at the end of the file, replace "bucket: 'gobarber-gostack-application'" for your own bucket;
@@ -30,4 +25,22 @@
     * ## PostgreSQL
       * On PostgreSQL, you'll need to create a database named "gostack_gobarber";
       * On the server folder, the "ormconfig.json" file will need to be updated with your postgres username and password;
-      * Now on you terminal run: "yarn typeorm migration:run";
+      * Now on you terminal run: "yarn typeorm migration:run", this will create all necessary tables and relations;
+    * ## MongoDB
+      * Just install it and make sure it's running on "localhost:27017";
+      * For a visual interface you can use [MongoDB Compass community](https://www.mongodb.com/try/download/compass)
+    * ## Redis
+      * Just install it and make sure it's running on gate "6379";
+  * ### To run
+    * Go to the server folder, run "yarn" to install all necessary packages;
+    * Now run, "yarn dev:server" and that's it
+      
+* ## React Web Front-end
+
+  <p align="center">
+    <img width="850" height="450" src="/gobarber-web/public/gobarber-logon.png">
+  </p>
+  
+  * Let your server running;
+  * Inside the "gobarber-web" folder, run "yarn";
+  * Run "yarn start", that's it
