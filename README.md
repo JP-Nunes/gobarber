@@ -43,4 +43,15 @@
   
   * Let your server running;
   * Inside the "gobarber-web" folder, run "yarn";
-  * Run "yarn start", that's it
+  * Run "yarn start", that's it;
+  
+ * ## React Native
+  
+  <p align="center">
+    <img width="300" height="600" src="/gobarber-mobile/public/logon.png">
+  </p>
+  
+  * Let your server running;
+  * Inside the "gobarber-mobile" folder, run "yarn";
+  * Change the base URL, on "gobarber-mobile/src/services/api.ts", to "http:YOUR_MACHINE_IP:3333";
+  * Run "yarn start", that's it;
