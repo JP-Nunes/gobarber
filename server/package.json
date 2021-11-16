@@ -16,7 +16,7 @@
     "@types/mongodb": "^3.5.25",
     "@typescript-eslint/eslint-plugin": "^3.3.0",
     "@typescript-eslint/parser": "^3.3.0",
-    "aws-sdk": "^2.728.0",
+    "aws-sdk": "^2.814.0",
     "bcryptjs": "^2.4.3",
     "celebrate": "^12.2.0",
     "class-transformer": "^0.3.1",
